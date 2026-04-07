@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pumpkin King Tattoos</title>
+
+    <!-- Link to the "Look" of the app -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Link to the App DNA (Manifest) for phone installation -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Pinterest Script to show boards inside the app -->
+    <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+</head>
+<body>
+
+<!-- Your Logo Graphic -->
+<div class="logo-container">
+    <img src="jack-o-lantern.jpg" alt="Pumpkin King Tattoos Logo" id="main-logo">
+</div>
+
+<!-- The Dropdown Section with all 52 Categories -->
+<div class="dropdown-section">
+    <select id="style-dropdown">
+        <option value="" disabled selected>-- Select a Style --</option>
+        <option value="Aliens">Aliens</option>
+        <option value="Angels">Angels</option>
+        <option value="Bats">Bats</option>
+        <option value="Bears">Bears</option>
+        <option value="Bees">Bees</option>
+        <option value="Biblical">Biblical</option>
+        <option value="Birds">Birds</option>
+        <option value="Boats and Ships">Boats and Ships</option>
+        <option value="Bugs and Insects">Bugs and Insects</option>
+        <option value="Butterflies">Butterflies</option>
+        <option value="Cartoon Characters">Cartoon Characters</option>
+        <option value="Castles">Castles</option>
+        <option value="Cats">Cats</option>
+        <option value="Cemeteries & Tombstones">Cemeteries & Tombstones</option>
+        <option value="Chandeliers">Chandeliers</option>
+        <option value="Clowns">Clowns</option>
+        <option value="Comics">Comics</option>
+        <option value="Cowboys">Cowboys</option>
+        <option value="Cryptids">Cryptids</option>
+        <option value="Deer">Deer</option>
+        <option value="Devils and Demons">Devils and Demons</option>
+        <option value="Dragons">Dragons</option>
+        <option value="Dream Catchers">Dream Catchers</option>
+        <option value="Eagles">Eagles</option>
+        <option value="Eyes">Eyes</option>
+        <option value="Fairies">Fairies</option>
+        <option value="Feathers">Feathers</option>
+        <option value="Fingers">Fingers</option>
+        <option value="Fish">Fish</option>
+        <option value="Flowers">Flowers</option>
+        <option value="Frogs">Frogs</option>
+        <option value="Ghosts">Ghosts</option>
+        <option value="Grimm Reapers">Grimm Reapers</option>
+        <option value="Halloween">Halloween</option>
+        <option value="Hearts">Hearts</option>
+        <option value="Horror">Horror</option>
+        <option value="Horses">Horses</option>
+        <option value="Hot Rod / Rat Fink">Hot Rod / Rat Fink</option>
+        <option value="Juggalo">Juggalo</option>
+        <option value="Mermaids">Mermaids</option>
+        <option value="Miscellaneous">Miscellaneous</option>
+        <option value="Minimalist">Minimalist</option>
+        <option value="New School">New School</option>
+        <option value="Old School">Old School</option>
+        <option value="Pokémon">Pokémon</option>
+        <option value="Punk">Punk</option>
+        <option value="Rock and Roll">Rock and Roll</option>
+        <option value="Skulls and Skeletons">Skulls and Skeletons</option>
+        <option value="Tim Burton Art">Tim Burton Art</option>
+        <option value="Watercolor">Watercolor</option>
+        <option value="Zodiac">Zodiac</option>
+        <option value="Zombies">Zombies</option>
+    </select>
+    <br>
+    <button id="view-btn" class="anim-btn">View Designs</button>
+</div>
+
+<!-- The Instructions Section -->
+<div class="instruction-section">
+    <button id="instruction-btn" class="anim-btn" style="border-color: #FF7518; color: #FF7518; line-height: 1.4;">
+        Click here and follow these instructions. <br>
+        <span style="font-size: 0.75rem; color: #cc5500; text-shadow: none;">Click again to close these instructions.</span>
+    </button>
+
+    <div id="instruction-box" class="hidden">
+        <ul style="text-align: left; display: inline-block; color: #FF7518; font-weight: bold; padding: 10px;">
+            <li>- When you find a design you want, click on it.</li>
+            <li>- Either Log in to Pinterest (If you're not already) using google and then take a screenshot of the image you want.</li>
+            <li>- If you don't want to log into Pinterest, then just screenshot the page within my app and draw an arrow to it or just message me which one it is you want.</li>
+            <li>- Send the screenshot and a message to me on Facebook messenger.</li>
+        </ul>
+        <br>
+        <a href="https://www.facebook.com/jack.adams.7946/" target="_blank" class="fb-link">MESSAGE ME ON FACEBOOK</a>
+    </div>
+</div>
+
+<!-- The Pinterest Board Display Area -->
+<div id="pinterest-stack">
+    <p id="placeholder-text" style="color: #444; margin-top: 50px;">Your selection will appear here...</p>
+</div>
+
+<!-- The "Show More" Area -->
+<div id="more-area" style="display:none; padding-bottom: 80px;">
+    <button id="show-more-btn" class="anim-btn" style="border-color: #bd081c; color: #ff6e6e;">Show More Designs</button>
+</div>
+
+<!-- Link to the "Brains" of the app -->
+<script src="app.js"></script>
+</body>
+</html>

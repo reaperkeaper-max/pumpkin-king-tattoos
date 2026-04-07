@@ -1,0 +1,100 @@
+body {
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #ffffff;
+    text-align: center;
+}
+
+#main-logo {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.dropdown-section { margin: 20px 0; }
+
+#style-dropdown {
+    background-color: #1a1a1a;
+    color: #FF7518;
+    border: 2px solid #A020F0;
+    padding: 12px;
+    width: 90%;
+    max-width: 350px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.anim-btn {
+    background-color: #000000;
+    color: #FF7518;
+    text-shadow: 0 0 8px #A020F0;
+    border: 1px solid #A020F0;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: 90%;
+    max-width: 350px;
+    box-shadow: 0 5px 0 #4B0082;
+    position: relative;
+    transition: 0.1s;
+    margin-top: 10px;
+}
+
+.anim-btn:active {
+    box-shadow: 0 1px 0 #4B0082;
+    transform: translateY(4px);
+}
+
+#instruction-box {
+    background-color: #111;
+    border: 2px dashed #FF7518;
+    padding: 15px;
+    width: 85%;
+    max-width: 400px;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+.hidden { display: none; }
+
+.fb-link {
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #0084FF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.board-clipper {
+    overflow: hidden;
+    height: 600px;
+    margin: 20px auto;
+    width: 95%;
+    max-width: 450px;
+    border-radius: 15px;
+    background-color: #111;
+    border: 1px solid #333;
+}
+
+.particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 2.2rem;
+    animation: flyAway 2s forwards ease-out;
+}
+
+@keyframes flyAway {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+    100% { transform: translate(var(--x), var(--y)) scale(1.8) rotate(360deg); opacity: 0; }
+}
