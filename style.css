@@ -5,6 +5,8 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
     color: #ffffff;
     text-align: center;
+    /* Prevents side-scrolling on mobile when emojis fly */
+    overflow-x: hidden;
 }
 
 #main-logo {
@@ -43,7 +45,8 @@ body {
     max-width: 350px;
     box-shadow: 0 5px 0 #4B0082;
     position: relative;
-    transition: 0.1s;
+    /* transition added for smooth color changes */
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.1s;
     margin-top: 10px;
 }
 
@@ -75,9 +78,10 @@ body {
     font-weight: bold;
 }
 
+/* Updated height to 900px to show more pins per URL */
 .board-clipper {
     overflow: hidden;
-    height: 600px;
+    height: 900px;
     margin: 20px auto;
     width: 95%;
     max-width: 450px;

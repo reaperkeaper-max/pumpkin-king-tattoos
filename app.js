@@ -74,9 +74,29 @@ function addNewBoard(url) {
     const stack = document.getElementById('pinterest-stack');
     const clipper = document.createElement('div');
     clipper.classList.add('board-clipper');
-    clipper.innerHTML = `<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="580" data-pin-scale-width="80" href="${url}"></a>`;
+    // Using a height of 800 to try and show more pins within the widget limit
+    clipper.innerHTML = `<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-board-height="800" data-pin-scale-height="580" data-pin-scale-width="80" href="${url}"></a>`;
     stack.appendChild(clipper);
     setTimeout(() => { if (window.PinUtils) window.PinUtils.build(); }, 150);
+}
+
+// Function to handle the state of the "Show More" button
+function updateMoreButtonState(style) {
+    const moreBtn = document.getElementById('show-more-btn');
+    const boards = tattooData[style];
+
+    // If there are more specific URLs in our list to show...
+    if (currentBoardIndex < boards.length - 1) {
+        moreBtn.innerHTML = "Show More Designs";
+        moreBtn.style.backgroundColor = "#000000"; // Black theme
+        moreBtn.style.borderColor = "#FF7518";     // Orange border
+    }
+    // If we have reached the last URL or there was only ever one...
+    else {
+        moreBtn.innerHTML = `Search Pinterest for more ${style}!`;
+        moreBtn.style.backgroundColor = "#bd081c"; // Pinterest Red
+        moreBtn.style.borderColor = "#ffffff";
+    }
 }
 
 window.onload = function() {
@@ -101,11 +121,15 @@ window.onload = function() {
             stack.innerHTML = "";
             currentBoardIndex = 0;
             const boards = tattooData[style];
+
+            // Add the very first board
             addNewBoard(boards[0]);
+
+            // Show the "More" area
             moreArea.style.display = "block";
-            moreBtn.innerHTML = "Show More Designs";
-            moreBtn.style.backgroundColor = "#000000";
-            moreBtn.style.opacity = "1";
+
+            // Set button text correctly based on if there are more boards or just one
+            updateMoreButtonState(style);
         }
     });
 
@@ -114,20 +138,21 @@ window.onload = function() {
         const boards = tattooData[style];
         const emoji = emojiData[style] || "💀";
 
-        currentBoardIndex++;
-
-        if (currentBoardIndex < boards.length) {
+        // Logic: If we have more URLs to load from our list
+        if (currentBoardIndex < boards.length - 1) {
+            currentBoardIndex++;
             createParticles(event, emoji);
             addNewBoard(boards[currentBoardIndex]);
+
+            // Check again: Did we just load the last one?
+            // If so, change button to the "Pinterest Search" version
+            updateMoreButtonState(style);
         }
+        // Logic: If we are already on the last URL, open external search
         else {
             createParticles(event, "🔥");
-            // UPDATED MESSAGE AS REQUESTED
-            moreBtn.innerHTML = `All curated designs loaded. Click here for more on Pinterest!`;
-            moreBtn.style.backgroundColor = "#bd081c";
-
-            // If they click this final version, it opens the search
-            moreBtn.onclick = () => window.open(`https://www.pinterest.com/search/pins/?q=${style} tattoo design`, '_blank');
+            const searchQuery = style + " tattoo designs";
+            window.open(`https://www.pinterest.com/search/pins/?q=${encodeURIComponent(searchQuery)}`, '_blank');
         }
     });
 };
